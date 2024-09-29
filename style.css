@@ -1,74 +1,327 @@
+/* Cor do fundo com gradiente */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.center {
-  text-align: center;
-  color: #ff69b4;
-}
-
-nav ul {
-  list-style-type: none;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, #ff8ba7, #ffbed4, #ffe6ed);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Estilos gerais */
+h1, h2 {
   text-align: center;
+  color: #333;
 }
 
-nav ul li {
-  display: inline;
-  margin-right: 10px;
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #000000;
-  background-color: #ff69b4;
-  padding: 5px 10px;
-  border-radius: 5px;
+h2 {
+  font-size: 1.8rem;
+  color: #ff4b7a;
+  margin-bottom: 10px;
 }
 
-nav ul li a:hover {
-  background-color: #ff1493;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.9); /* Fundo levemente transparente */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para profundidade */
 }
 
-.section {
-  display: none;
+table th, table td {
+  padding: 12px 15px;
+  text-align: left;
 }
 
-.section.active {
-  display: block;
+table th {
+  background-color: #ffbed4; /* Cor de cabeçalho suave */
+  color: #333;
 }
 
+table tr:nth-child(even) {
+  background-color: #ffe6ed;
+}
+
+/* Botões */
 button {
-  background-color: #ff69b4;
-  color: white;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ff4b7a, #ff8ba7);
+  color: white;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background-color: #ff1493;
+  background: linear-gradient(45deg, #ff8ba7, #ff4b7a);
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+/* Estilo para as abas */
+.aba {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo transparente */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 80%;
 }
 
-ul li {
-  padding: 5px 0;
+.ativa {
+  display: block;
 }
 
-label {
-  margin-right: 5px;
+/* Navegação das abas */
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
+nav button {
+  margin-right: 10px;
+}
+
+/* Formulário com campos alinhados horizontalmente */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px; /* Espaço entre os campos */
+  margin-bottom: 20px;
+}
+
+form label {
+  flex-basis: 20%; /* Cada campo ocupará 20% da largura do formulário */
+  display: block;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  flex-basis: 100%; /* O botão ocupará toda a largura */
+  background-color: #ff4b7a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #ff8ba7;
+}
+
+/* Formulário com campos alinhados horizontalmente */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px; /* Espaço entre os campos */
+  margin-bottom: 20px;
+}
+
+form label {
+  flex-basis: 20%; /* Cada campo ocupará 20% da largura do formulário */
+  display: block;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  flex-basis: 100%; /* O botão ocupará toda a largura */
+  background-color: #ff4b7a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #ff8ba7;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  body {
+      padding: 10px;
+  }
+
+  table, th, td {
+      font-size: 14px;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  h2 {
+      font-size: 1.5rem;
+  }
+
+  button {
+      font-size: 14px;
+      padding: 8px 15px;
+  }
+}
+
+
+/* Responsividade */
+/* Estilos para telas pequenas (até 768px) */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  table, th, td {
+    font-size: 14px;
+    width: 100%; /* Assegura que a tabela use toda a largura disponível */
+  }
+
+  h1 {
+    font-size: 2rem; /* Título menor */
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .form-row {
+    flex-direction: column; /* Organiza os inputs em coluna em telas menores */
+  }
+
+  .form-row input, .form-row button {
+    flex: 1 1 100%; /* Cada campo ocupa 100% da largura */
+    margin: 5px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr; /* Grid com uma coluna em telas pequenas */
+  }
+
+  /* Tabela responsiva para dispositivos móveis */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none; /* Esconde o cabeçalho em telas menores */
+  }
+
+  tr {
+    margin-bottom: 10px;
+  }
+
+  td {
+    display: block;
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  /* Ajuste do gráfico */
+  #graficoDashboard {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Estilos para tablets e telas médias (entre 768px e 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form-row input, .form-row button {
+    flex: 1 1 30%; /* Cada input ocupa 30% da largura */
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr); /* Grid com 2 colunas */
+    gap: 10px;
+  }
+
+  #graficoDashboard {
+    max-width: 80%; /* O gráfico ocupa até 80% da largura */
+    margin: 0 auto; /* Centraliza o gráfico */
+  }
+}
+
+/* Estilos para desktops grandes (mínimo de 1024px) */
+@media (min-width: 1024px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Tamanho maior para o título */
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .form-row input, .form-row button {
+    flex: 1 1 30%; /* Cada campo ocupa 30% da largura */
+    margin: 10px; /* Margem maior para espaços amplos */
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas para telas grandes */
+  }
+
+  /* Ajuste para o gráfico */
+  #graficoDashboard {
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto; /* Centraliza o gráfico */
+  }
+
+  /* Tabela mantém a estrutura regular */
+  table {
+    width: 100%;
+    font-size: 16px;
+    border-collapse: collapse;
+  }
+
+  td, th {
+    padding: 10px;
+    text-align: left;
+  }
+
+  .table-responsive {
+    overflow-x: auto; /* Mantém a responsividade para tabelas grandes */
+  }
+}

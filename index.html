@@ -1,66 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Elo - Controle de Estoque</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Controle de Estoque Sofisticado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- O arquivo CSS -->
 </head>
 <body>
-    <div class="container">
-        <h1 class="center">Ana Elo</h1>
-        <h2 class="center">Controle de Estoque</h2>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="showSection('entradaProduto')">Entrada de Produto</a></li>
-                <li><a href="#" onclick="showSection('saidaProduto')">Saída de Produto</a></li>
-                <li><a href="#" onclick="showSection('resumoMensal')">Resumo Mensal</a></li>
-                <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
-            </ul>
-        </nav>
 
-        <!-- Seção Entrada de Produto -->
-        <section id="entradaProduto" class="section active">
-            <h3>Entrada de Produto</h3>
-            <label for="produtoData">Data:</label>
-            <input type="date" id="produtoData">
-            <label for="produtoCodigo">Código:</label>
-            <input type="text" id="produtoCodigo">
-            <label for="produtoNome">Nome:</label>
-            <input type="text" id="produtoNome">
-            <label for="produtoValor">Valor:</label>
-            <input type="number" id="produtoValor">
-            <button onclick="adicionarProduto()">Adicionar Produto</button>
-            <ul id="listaProdutos"></ul>
-        </section>
+    <h1>Controle de Estoque</h1>
 
-        <!-- Seção Saída de Produto -->
-        <div id="saidaProduto" class="section">
-            <h2>Saída de Produto</h2>
-            <ul id="listaSaida"></ul>
-            <p id="totalVendasSaida">Total Vendido: R$0.00</p>
-        </div>
+    <nav>
+        <button onclick="mostrarAba('entrada')">Entrada</button>
+        <button onclick="mostrarAba('saida')">Saída</button>
+        <button onclick="mostrarAba('mensal')">Resumo Mensal</button>
+        <button onclick="mostrarAba('dashboard')">Dashboard</button>
+    </nav>
 
-        </section>
-
-        <!-- Seção Resumo Mensal -->
-        <div id="resumoMensal" class="section">
-            <h2>Resumo Mensal</h2>
-            <ul id="listaResumoMensal"></ul>
-        </div>
+    <!-- Aba de Entrada -->
+    <div id="entrada" class="aba ativa">
+        <form id="formEntrada" onsubmit="adicionarProdutoFormulario(); return false;">
+            <div>
+                <label for="codigo">Código:</label>
+                <input type="number" id="codigo" required>
+            </div>
         
-        </section>
+            <div>
+                <label for="nome">Produto:</label>
+                <input type="text" id="nome" required>
+            </div>
+        
+            <div>
+                <label for="valor">Valor:</label>
+                <input type="number" step="0.01" id="valor" required>
+            </div>
+        
+            <div>
+                <label for="data">Data:</label>
+                <input type="date" id="data" required>
+            </div>
+        
+            <button type="submit">Adicionar Produto</button>
+        </form>
+        
 
-        <!-- Seção Dashboard -->
-        <section id="dashboard" class="section">
-            <h3>Dashboard</h3>
-            <p>Total Vendido: R$<span id="totalVendido">0.00</span></p>
-            <p>Total em Estoque: R$<span id="totalEstoque">0.00</span></p>
-            <p>Mês com Mais Vendas: <span id="mesMaisVendas"></span></p>
-            <p>Mês com Menos Vendas: <span id="mesMenosVendas"></span></p>
-        </section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Produto</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="entradaProdutosBody"></tbody>
+        </table>
     </div>
+
+    <!-- Aba de Saída -->
+    <div id="saida" class="aba">
+        <h2>Aba de Saída</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Produto</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="saidaProdutosBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Aba de Resumo Mensal -->
+    <div id="mensal" class="aba">
+        <h2>Resumo Mensal</h2>
+        <div id="resumoMensal"></div>
+    </div>
+
+    <!-- Aba de Dashboard -->
+    <div id="dashboard" class="aba">
+        <h2>Dashboard</h2>
+        <div id="dashboardResumo"></div>
+        <canvas id="graficoDashboard"></canvas> <!-- O canvas onde o gráfico será exibido -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
